@@ -52,7 +52,27 @@ const NoteSection = styled.section`
   }
 `;
 const CategorySection = styled.section`
-  
+  font-size: 24px;
+  background: #c4c4c4;
+  text-align: center;
+  > ul{
+    display: flex;
+    > li{
+      width: 50%;
+      padding: 16px 0;
+      position: relative;
+      &.selected::after{
+        content: '';
+        display: block;
+        height: 3px;
+        background: #333;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
 `;
 const NumberPadSection = styled.section`
   
@@ -77,10 +97,10 @@ function Tags() {
         </label>
       </NoteSection>
       <CategorySection>
-        <ol>
-          <li>支出</li>
+        <ul>
+          <li className="selected">支出</li>
           <li>收入</li>
-        </ol>
+        </ul>
       </CategorySection>
       <NumberPadSection>
         <div>
