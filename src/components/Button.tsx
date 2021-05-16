@@ -16,11 +16,12 @@ const Wrapper = styled.div`
   }
 `
 type Props = {
-  name: string
+  name: string,
+  onClick?: ()=>void;
 }
 const Button:React.FC<Props> = (props)=>{
   return (
-    <Wrapper>
+    <Wrapper onClick={props.onClick}>
       <button>{props.name}</button>
     </Wrapper>
   )

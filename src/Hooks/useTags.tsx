@@ -11,23 +11,10 @@ const data = [
 const useTags = ()=>{
   const [tags,setTags] = useState<{id: number,name: string}[]>(data)
   const findTag = (id: number)=> tags.filter(tag=> tag.id === id)[0]
-  const findTagIndex = (id:number)=>{
-    let index = -1
-    for(let i=0; i<tags.length; i++){
-      if(tags[i].id === id){
-        index = i
-        break
-      }
-    }
-    return index
-  }
-  const updateTag = (id: number,value: string)=>{
-    let index = findTagIndex(id)
-    const cloneTags = JSON.parse(JSON.stringify(tags))
-    cloneTags[index].name = value
-    setTags(cloneTags)
-  }
-  return {tags,setTags,findTag,findTagIndex,updateTag}
+  const updateTag = (id: number,value: string)=>setTags(tags.map(tag=> tag.id === id ? {id, name: value} : tag))
+  const delTag = (id: number)=>setTags(tags.filter(tag => tag.id !== id))
+
+  return {tags,setTags,findTag,updateTag,delTag}
 }
 
 export {useTags}

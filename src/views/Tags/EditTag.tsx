@@ -26,10 +26,32 @@ const InputWrapper = styled.div`
   background: #fff;
 `
 
+const DelContent = styled.div`
+  text-align: center;
+  padding: 16px;
+  font-size: 20px;
+`
+
 const EditTag = ()=>{
-  const {findTag,updateTag} = useTags()
+  const {findTag,updateTag,delTag} = useTags()
   let { id } = useParams<Params>()
   let tag = findTag(parseInt(id))
+
+  const tagContent = ()=>{
+    return (
+      <div>
+        <InputWrapper>
+          <Input label="标签名"
+                 type="text"
+                 value={tag.name}
+                 onChange={(e)=>{updateTag(tag.id,e.target.value)}}
+          />
+        </InputWrapper>
+        <Button onClick={()=> delTag(tag.id)} name="删除标签"/>
+      </div>
+    )
+  }
+
   return (
     <Layout>
       <TopBar>
@@ -37,12 +59,7 @@ const EditTag = ()=>{
         <span>编辑标签</span>
         <Icon/>
       </TopBar>
-      <InputWrapper>
-        <Input label="标签名" type="text" value={tag.name}
-               onChange={(e)=>{updateTag(tag.id,e.target.value)}}
-        />
-      </InputWrapper>
-      <Button name="删除标签"/>
+      {!tag ? <DelContent>已删除</DelContent> : tagContent()}
     </Layout>
   )
 }
