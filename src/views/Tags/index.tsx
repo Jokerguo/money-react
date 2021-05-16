@@ -38,7 +38,7 @@ const Center = styled.div`
 `
 
 const Tags = () => {
-  const {tags,setTags} = useTags()
+  const {tags} = useTags()
 
   return (
     <Layout>
