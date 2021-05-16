@@ -5,13 +5,13 @@ const requireAll = (requireContext: __WebpackModuleApi.RequireContext) => requir
 try {requireAll(require.context('icons', true, /\.svg$/))}catch(err){console.log(err);}
 
 type Props = {
-  name: string
+  name?: string
 }
 
 const Icon = (props: Props) =>{
   return (
     <svg className="icon">
-      <use xlinkHref={'#' + props.name}/>
+      {props.name && <use xlinkHref={'#' + props.name}/>}
     </svg>
   )
 }
