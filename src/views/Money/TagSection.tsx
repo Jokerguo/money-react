@@ -38,37 +38,37 @@ const Wrapper = styled.section`
 `;
 
 type Props = {
-  value: string[];
-  onChange: (props: string[])=>void;
+  value: number[];
+  onChange: (props: number[])=>void;
 }
 
 const TagSection: React.FC<Props> = (props)=>{
   const {tags,setTags} = useTags()
-  const selectedTag = props.value
+  const selectedTagIds = props.value
 
   const onAddTag = ()=>{
     const tagName = window.prompt()
     if(!!tagName){
-      setTags([...tags,tagName])
+      setTags([...tags,{id: Math.random(),name: tagName}])
     }
   }
-  const onToggleTag = (tag: string)=>{
-    if(selectedTag.indexOf(tag) === -1){
-      props.onChange([...selectedTag,tag])
+  const onToggleTag = (tagId: number)=>{
+    if(selectedTagIds.indexOf(tagId) === -1){
+      props.onChange([...selectedTagIds,tagId])
     }else{
-      props.onChange(selectedTag.filter(t => t !== tag))
+      props.onChange(selectedTagIds.filter(t => t !== tagId))
     }
   }
-  const getClass =(tag:string) =>  selectedTag.indexOf(tag) !== -1 ? 'selected' : ''
+  const getClass =(tagId:number) =>  selectedTagIds.indexOf(tagId) !== -1 ? 'selected' : ''
 
   return (
     <Wrapper>
       <ol>
         {tags.map(tag =>
-          <li key={tag}
-              onClick={()=>onToggleTag(tag)}
-              className={getClass(tag)}
-          >{tag}</li>
+          <li key={tag.id}
+              onClick={()=>onToggleTag(tag.id)}
+              className={getClass(tag.id)}
+          >{tag.name}</li>
         )}
       </ol>
       <button onClick={onAddTag}>新增标签</button>
