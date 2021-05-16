@@ -1,10 +1,10 @@
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {CategorySection} from './Money/CategorySection';
-import {TagSection} from './Money/TagSection';
-import {NoteSection} from './Money/NoteSection';
-import {NumberPadSection} from './Money/NumberPadSection';
+import {CategorySection} from './CategorySection';
+import {TagSection} from './TagSection';
+import {NoteSection} from './NoteSection';
+import {NumberPadSection} from './NumberPadSection';
 
 const MyLayout = styled(Layout)`
   display: flex;
@@ -13,7 +13,7 @@ const MyLayout = styled(Layout)`
 
 type Category = '+' | '-'
 
-function Money() {
+function Index() {
   const [selected,setSelected] = useState({
     tags: [] as string[],
     note: '',
@@ -42,4 +42,4 @@ function Money() {
   );
 }
 
-export default Money
+export default Index

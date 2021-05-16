@@ -5,7 +5,7 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import Money from './views/Money';
+import Index from './views/Money';
 import Statistics from './views/Statistics';
 import Tags from './views/Tags';
 import NoMatch from './views/NoMatch';
@@ -18,7 +18,7 @@ function App() {
           <Tags />
         </Route>
         <Route path="/money">
-          <Money />
+          <Index />
         </Route>
         <Route path="/statistics">
           <Statistics />
