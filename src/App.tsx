@@ -5,22 +5,26 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import Index from './views/Money';
 import Statistics from './views/Statistics';
 import Tags from './views/Tags';
+import Money from './views/Money';
 import NoMatch from './views/NoMatch';
+import {EditTag} from './views/Tags/EditTag';
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/tags">
+        <Route exact path="/tags">
           <Tags />
         </Route>
-        <Route path="/money">
-          <Index />
+        <Route exact path="/tags/:tag">
+          <EditTag/>
         </Route>
-        <Route path="/statistics">
+        <Route exact path="/money">
+          <Money />
+        </Route>
+        <Route exact path="/statistics">
           <Statistics />
         </Route>
         <Redirect exact from="/" to="/money" />

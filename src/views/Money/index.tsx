@@ -13,7 +13,7 @@ const MyLayout = styled(Layout)`
 
 type Category = '+' | '-'
 
-function Index() {
+const Money = () => {
   const [selected,setSelected] = useState({
     tags: [] as string[],
     note: '',
@@ -42,4 +42,4 @@ function Index() {
   );
 }
 
-export default Index
+export default Money
