@@ -35,7 +35,7 @@ function Nav() {
     <NavWrapper>
       <ul>
         <li>
-          <NavLink to="/tags" activeClassName="selected">
+          <NavLink exact to="/tags" activeClassName="selected">
             <Icon name="tag"/>
             标签页
           </NavLink>
