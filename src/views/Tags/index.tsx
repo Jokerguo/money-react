@@ -37,7 +37,7 @@ const Tags = () => {
           </li>
         )}
       </TagList>
-      <Button/>
+      <Button name="新增标签"/>
     </Layout>
   );
 }

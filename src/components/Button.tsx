@@ -15,11 +15,13 @@ const Wrapper = styled.div`
     color: white;
   }
 `
-
-const Button:React.FC = ()=>{
+type Props = {
+  name: string
+}
+const Button:React.FC<Props> = (props)=>{
   return (
     <Wrapper>
-      <button>新增标签</button>
+      <button>{props.name}</button>
     </Wrapper>
   )
 }
