@@ -1,9 +1,10 @@
-import Layout from '../../components/Layout';
 import React from 'react';
-import {useTags} from '../../Hooks/useTags';
-import styled from 'styled-components';
-import Icon from '../../components/Icon';
 import {Link} from 'react-router-dom';
+import styled from 'styled-components';
+import Layout from 'components/Layout';
+import {useTags} from 'Hooks/useTags';
+import Icon from 'components/Icon';
+import {Button} from 'components/Button';
 
 const TagList = styled.ol`
   font-size: 16px;
@@ -21,22 +22,6 @@ const TagList = styled.ol`
   }
 `
 
-const Button = styled.button`
-  font-size: 18px;
-  border: none;
-  padding: 8px 12px;
-  background: #408CCB;
-  border-radius: 4px;
-  color: white;
-`
-
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 48px 0;
-`
-
 const Tags = () => {
   const {tags} = useTags()
 
@@ -52,9 +37,7 @@ const Tags = () => {
           </li>
         )}
       </TagList>
-      <Center>
-        <Button>新增标签</Button>
-      </Center>
+      <Button/>
     </Layout>
   );
 }
