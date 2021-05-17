@@ -14,7 +14,7 @@ const useTags = ()=>{
   const updateTag = (id: number,value: string)=>setTags(tags.map(tag=> tag.id === id ? {id, name: value} : tag))
   const delTag = (id: number)=>setTags(tags.filter(tag => tag.id !== id))
   const addTag = ()=>{
-    const tagName = window.prompt()
+    const tagName = window.prompt('标签名称：')
     if(!!tagName){
       setTags([...tags,{id: createId(),name: tagName}])
     }
