@@ -21,8 +21,8 @@ type Props = {
 }
 const Button:React.FC<Props> = (props)=>{
   return (
-    <Wrapper onClick={props.onClick}>
-      <button>{props.name}</button>
+    <Wrapper>
+      <button onClick={props.onClick}>{props.name}</button>
     </Wrapper>
   )
 }
