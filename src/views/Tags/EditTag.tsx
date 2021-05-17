@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTags} from 'Hooks/useTags';
-import {useParams} from "react-router-dom";
+import {useParams,useHistory} from "react-router-dom";
 import Layout from 'components/Layout';
 import Icon from 'components/Icon';
 import {Button} from 'components/Button';
@@ -36,6 +36,7 @@ const EditTag = ()=>{
   const {findTag,updateTag,delTag} = useTags()
   let { id } = useParams<Params>()
   let tag = findTag(parseInt(id))
+  let history = useHistory()
 
   const tagContent = ()=>{
     return (
@@ -52,10 +53,14 @@ const EditTag = ()=>{
     )
   }
 
+  const onClickIcon = ()=>{
+    history.goBack()
+  }
+
   return (
     <Layout>
       <TopBar>
-        <Icon name="left"/>
+        <Icon name="left" onClick={onClickIcon}/>
         <span>编辑标签</span>
         <Icon/>
       </TopBar>
