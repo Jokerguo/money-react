@@ -44,15 +44,9 @@ type Props = {
 }
 
 const TagSection: React.FC<Props> = (props)=>{
-  const {tags,setTags} = useTags()
+  const {tags,addTag} = useTags()
   const selectedTagIds = props.value
 
-  const onAddTag = ()=>{
-    const tagName = window.prompt()
-    if(!!tagName){
-      setTags([...tags,{id: createId(),name: tagName}])
-    }
-  }
   const onToggleTag = (tagId: number)=>{
     if(selectedTagIds.indexOf(tagId) === -1){
       props.onChange([...selectedTagIds,tagId])
@@ -72,7 +66,7 @@ const TagSection: React.FC<Props> = (props)=>{
           >{tag.name}</li>
         )}
       </ol>
-      <button onClick={onAddTag}>新增标签</button>
+      <button onClick={addTag}>新增标签</button>
     </Wrapper>
   )
 }
