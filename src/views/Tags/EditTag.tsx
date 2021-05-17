@@ -48,7 +48,10 @@ const EditTag = ()=>{
                  onChange={(e)=>{updateTag(tag.id,e.target.value)}}
           />
         </InputWrapper>
-        <Button onClick={()=> delTag(tag.id)} name="删除标签"/>
+        <Button onClick={()=> {
+          delTag(tag.id)
+          onClickIcon()
+        }} name="删除标签"/>
       </div>
     )
   }
