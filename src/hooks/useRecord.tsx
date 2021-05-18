@@ -37,7 +37,7 @@ const useRecord =()=>{
     return true
   }
 
-  return {addRecord}
+  return {record,addRecord}
 }
 
 export {useRecord}
