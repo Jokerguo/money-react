@@ -19,7 +19,7 @@ const CategoryWrapper = styled.div`
 const defaultData = {
   tagIds: [] as number[],
   note: '',
-  category: '+' as Category,
+  category: '-' as Category,
   amount: '0',
 }
 
