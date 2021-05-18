@@ -14,6 +14,7 @@ const CategoryWrapper = styled.div`
 const Item = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 12px 16px;
   font-size: 18px;
   background: #fff;
@@ -21,6 +22,8 @@ const Item = styled.div`
     margin-left: 12px;
     margin-right: auto;
     color: #999;
+    font-size: 14px;
+    flex-grow: 1;
   }
 `
 
@@ -66,7 +69,7 @@ function Statistics() {
                   return (
                     <Item key={r.createdAt}>
                       <div>{r.tagIds.map(tagId=>findTag(tagId).name).join()}</div>
-                      <div className="note">{r.note}</div>
+                      <div className="note oneLine">{r.note}</div>
                       <div className="amount">￥{r.amount}</div>
                     </Item>
                   )
