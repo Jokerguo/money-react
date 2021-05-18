@@ -8,7 +8,7 @@ type RecordItem = {
   amount: number,
 }
 
-type Record = RecordItem & {
+export type Record = RecordItem & {
   createdAt: string
 }
 
