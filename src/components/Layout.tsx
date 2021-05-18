@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import Nav from './Nav';
 
@@ -12,7 +12,12 @@ const Main = styled.div`
   flex-grow: 1;
 `;
 
-const Layout = (props: any)=>{
+type Props = {
+  className?: string,
+}
+
+const Layout: React.FC<Props> = (props)=>{
+
   return (
     <Wrapper>
       <Main className={props.className}>
