@@ -18,6 +18,12 @@ const Item = styled.div`
   padding: 12px 16px;
   font-size: 18px;
   background: #fff;
+  > .tags{
+    max-width: 30%;
+  }
+  > .amount{
+    max-width: 30%;
+  }
   > .note{
     margin-left: 12px;
     margin-right: auto;
@@ -68,7 +74,7 @@ function Statistics() {
               {selectedRecord(record).map((r: Record)=>{
                   return (
                     <Item key={r.createdAt}>
-                      <div>{r.tagIds.map(tagId=>findTag(tagId).name).join()}</div>
+                      <div className="tags oneLine">{r.tagIds.map(tagId=>findTag(tagId).name).join()}</div>
                       <div className="note oneLine">{r.note}</div>
                       <div className="amount">￥{r.amount}</div>
                     </Item>
