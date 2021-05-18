@@ -4,7 +4,7 @@ import {useUpdate} from './useUpdate';
 
 
 const useTags = ()=>{
-    const [tags,setTags] = useState<{id: number,name: string}[]>([])
+  const [tags,setTags] = useState<{id: number,name: string}[]>([])
   useEffect(()=>{
     let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]')
     if(localTags.length === 0){
