@@ -37,7 +37,11 @@ const useRecord =()=>{
     return true
   }
 
-  return {record,addRecord}
+  const delRecord = (tagId: number)=>{
+    setRecord(record.filter((r,index)=>r.tagIds.indexOf(tagId) === -1))
+  }
+
+  return {record,addRecord,delRecord}
 }
 
 export {useRecord}
